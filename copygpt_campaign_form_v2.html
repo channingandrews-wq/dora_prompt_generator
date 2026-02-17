@@ -68,7 +68,7 @@
               <option value="" selected disabled>Select audience</option>
               <option>Consumer</option>
               <option>Dasher</option>
-              <option>Merchant</option>
+              <option>B2B</option>
             </select>
             <div class="error" id="audienceErr">Audience is required.</div>
           </div>
@@ -681,7 +681,7 @@
 
       <!-- MERCHANT -->
       <fieldset id="merchantBlock" class="hidden">
-        <legend>Merchant Campaign Details</legend>
+        <legend>B2B Campaign Details</legend>
 
         <div class="row">
           <div>
@@ -758,10 +758,9 @@
             <label for="m_segment" class="required">What is your Audience Segment?</label>
             <select id="m_segment" required>
               <option value="" selected disabled>Select segment</option>
-              <option>Applicant</option> 
-              <option>New Merchant</option>
-              <option>Active Merchant</option>
-              <option>Prospective Merchant</option>
+              <option>New to DoorDash</option>
+              <option>Active on DoorDash</option>
+              <option>Prospective</option>
             </select>
             <div class="error" id="m_segmentErr">Audience Segment is required.</div>
           </div>
@@ -769,7 +768,7 @@
 
         <div class="row">
           <div>
-            <label for="m_behavior" class="required">What has this Merchant done or not done recently? What’s their current mindset or situation?</label>
+            <label for="m_behavior" class="required">What has this audience done or not done recently? What’s their current mindset or situation?</label>
             <textarea id="m_behavior" placeholder="Start with &quot;who…?&quot;" required></textarea>
             <div class="hint">Please start your response with "who".</div>
             <div class="error" id="m_behaviorErr">This field is required and must start with "who".</div>
@@ -781,13 +780,13 @@
             <label for="m_usecase" class="required">What is your use case?</label>
             <select id="m_usecase" required>
               <option value="" selected disabled>Select use case</option>
-              <option>New Merchant Onboarding</option>
+              <option>Onboarding</option>
               <option>New Product / Product Upsell</option>
               <option>Transactional</option>
               <option>Apology / Outage</option>
               <option>Occasions and Co-Marketing</option>
               <option>Educational / Informational</option>
-              <option>Prospective Merchant</option>
+              <option>Prospective</option>
               <option>Other</option>
             </select>
             <div class="error" id="m_usecaseErr">Use Case is required.</div>
@@ -796,7 +795,7 @@
 
         <div class="row">
           <div>
-            <label for="m_action" class="required">What action do you want the Merchant to take?</label>
+            <label for="m_action" class="required">What action do you want the audience to take?</label>
             <textarea id="m_action" placeholder="What do you want them to do? Briefly expand on the CTA." required></textarea>
             <div class="error" id="m_actionErr">This field is required.</div>
           </div>
@@ -804,7 +803,7 @@
 
         <div class="row">
           <div>
-            <label for="m_takeaway" class="required">What is the most important takeaway for the Merchant?</label>
+            <label for="m_takeaway" class="required">What is the most important takeaway for the audience?</label>
             <textarea id="m_takeaway" placeholder="What's the one thing you want them to remember? Is there a claim or value prop to substantiate it?" required></textarea>
             <div class="error" id="m_takeawayErr">This field is required.</div>
           </div>
@@ -1119,7 +1118,7 @@ function scrollToFirstError(){
   // audience blocks
   consumerBlock.classList.toggle('hidden', audience.value!=='Consumer');
   dasherBlock.classList.toggle('hidden', audience.value!=='Dasher');
-  merchantBlock.classList.toggle('hidden', audience.value!=='Merchant');
+  merchantBlock.classList.toggle('hidden', audience.value!=='B2B');
 
   // ----- Consumer -----
   if (audience.value==='Consumer'){
@@ -1223,7 +1222,7 @@ if (audience.value === 'Dasher') {
 
 
   // ----- Merchant -----
-if (audience.value === 'Merchant') {
+if (audience.value === 'B2B') {
   const ch = m_channel.value;
   const isEmailOrPush = ch === 'Email' || ch === 'Push Notification';
   const isPaid = ch === 'Paid Media';
@@ -1678,7 +1677,7 @@ CTA: ${callToAction}.`;
     text = generateConsumer();
   } else if (audience.value === 'Dasher'){
     text = generateDasher();
-  } else if (audience.value === 'Merchant'){
+  } else if (audience.value === 'B2B'){
     text = generateMerchant();
   }
 
