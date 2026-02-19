@@ -1599,7 +1599,7 @@ CTA: ${callToAction}.`;
     const lt = (m_longType.value || '').toLowerCase();
     const article = /^[aeiou]/i.test(longType) ? 'an' : 'a';
 
-    let txt = `I need ${article} ${longType} for our DoorDash Merchant Content team targeting ${seg}. Use Case: ${uc}. The action we want the Merchant to take: ${actVal}. The most important takeaway for the Merchant: ${takeVal}. Highlight the following product/service: ${productAns}. CTA: ${callToAction}.`;
+    let txt = `I need ${article} ${longType} for our DoorDash Merchant Content team targeting a ${seg} audience. Use Case: ${uc}. The action we want the Merchant to take: ${actVal}. The most important takeaway for the Merchant: ${takeVal}. Highlight the following product/service: ${productAns}. CTA: ${callToAction}.`;
 
     if (lt === 'success story / case study'){
       const merchantDetails = (m_successMerchant?.value || '').trim();
@@ -1619,7 +1619,7 @@ CTA: ${callToAction}.`;
   }
 
   // ----- Default (non–Paid Media) -----
-  let txt = `I need a ${ch} for our DoorDash Merchant team targeting ${seg} ${(m_behavior.value||'').trim()}. 
+  let txt = `I need a ${ch} for our DoorDash Merchant team targeting a ${seg} audience ${(m_behavior.value||'').trim()}. 
 Use Case: ${uc}.
 The main action we want the Merchant to take: ${actVal}
 The most important takeaway for Merchant: ${takeVal}
@@ -1631,7 +1631,7 @@ CTA: ${callToAction}.`;
     const duration = (m_adType.value === 'Video' || m_adType.value === 'Static and Video')
       ? (m_videoLength?.value || '') + ' '
       : '';
-    txt = `I need a ${duration}${m_adType.value} ${ch} ad for our DoorDash Merchant team targeting ${seg} ${(m_behavior.value||'').trim()}. 
+    txt = `I need a ${duration}${m_adType.value} ${ch} ad for our DoorDash Merchant team targeting a ${seg} audience ${(m_behavior.value||'').trim()}. 
 Use Case: ${uc}.
 The main action we want the Merchant to take: ${actVal}
 The most important takeaway for Merchant: ${takeVal}
