@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dora Campaign Intake</title>
+  <title>Dora Campaign Intake 2/19 3:20pm</title>
   <style>
     :root{
       --bg:#fff5eaff;
@@ -54,7 +54,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Dora Prompt Generator 9/30 7pm</h1>
+    <h1>Dora Prompt Generator</h1>
     <p class="lead">Building for marketing channels? Fill out this form to generate a complete, ready-to-use prompt. Fields will update as you go.</p>
 
     <form id="intakeForm" novalidate>
@@ -400,7 +400,7 @@
               <option>Email</option>
               <option>Push Notification</option>
               <option>Paid Media</option>
-              <option>Long-Form Content</option>
+              <option>Long-form Content</option>
               <option>In-app Merchandising</option>
             </select><div id="d_unsupportedMsg" class="note hidden">
   <span class="support-msg">Dora does not currently support these channels.</span>
@@ -691,7 +691,7 @@
               <option>Email</option>
               <option>Push Notification</option>
               <option>Paid Media</option>
-              <option>Long-Form Content</option>
+              <option>Long-form Content</option>
               <option>Merchant Portal Feed Card</option>
             </select>
             <div class="error" id="m_channelErr">Channel is required.</div>
@@ -758,9 +758,9 @@
             <label for="m_segment" class="required">What is your Audience Segment?</label>
             <select id="m_segment" required>
               <option value="" selected disabled>Select segment</option>
-              <option>New to DoorDash</option>
+              <option>New to DoorDash</option> 
               <option>Active on DoorDash</option>
-              <option>Prospective</option>
+              <option>Prospective </option>
             </select>
             <div class="error" id="m_segmentErr">Audience Segment is required.</div>
           </div>
@@ -1155,7 +1155,7 @@ if (audience.value === 'Dasher') {
   const ch = d_channel.value;
   const isEmailOrPush = ch === 'Email' || ch === 'Push Notification';
   const isPaid = ch === 'Paid Media';
-  const isUnsupported = ch === 'Long-Form Content' || ch === 'In-app Merchandising';
+  const isUnsupported = ch === 'Long-form Content' || ch === 'In-app Merchandising';
 
   // Unsupported notice
   d_unsupportedMsg.classList.toggle('hidden', !isUnsupported);
@@ -1226,7 +1226,7 @@ if (audience.value === 'B2B') {
   const ch = m_channel.value;
   const isEmailOrPush = ch === 'Email' || ch === 'Push Notification';
   const isPaid = ch === 'Paid Media';
-  const isLongForm = ch === 'Long-Form Content';
+  const isLongForm = ch === 'Long-form Content';
   const isPortal = ch === 'Merchant Portal Feed Card' || ch === 'Portal Feed Card';
 
   // Unsupported note for Portal Feed Card
@@ -1553,7 +1553,7 @@ CTA: ${callToAction}.`;
   valid &&= validateRequired(m_segment,'m_segmentErr');
 
   // Behavior is required for non–long-form only
-  if (ch !== 'Long-Form Content'){
+  if (ch !== 'Long-form Content'){
     valid &&= validateStartsWithWho(m_behavior,'m_behaviorErr');
   }
 
@@ -1570,7 +1570,7 @@ CTA: ${callToAction}.`;
   }
 
   // If Long-Form, validate subtype & subtype-specific fields
-  if (ch === 'Long-Form Content'){
+  if (ch === 'Long-form Content'){
     valid &&= validateRequired(m_longType, 'm_longTypeErr');
     const lt = (m_longType.value || '').toLowerCase();
     if (lt === 'success story / case study'){
@@ -1594,8 +1594,8 @@ CTA: ${callToAction}.`;
   const productAns = (m_feature?.value || '').trim() || 'N/A';
 
   // ----- Long-Form OUTPUT (single, final version) -----
-  if (ch === 'Long-Form Content'){
-    const longType = m_longType.value || 'Long-Form Content';
+  if (ch === 'Long-form Content'){
+    const longType = m_longType.value || 'Long-form Content';
     const lt = (m_longType.value || '').toLowerCase();
     const article = /^[aeiou]/i.test(longType) ? 'an' : 'a';
 
