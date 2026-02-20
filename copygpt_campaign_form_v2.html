@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dora Campaign Intake 2/19 3:20pm</title>
+  <title>Dora Campaign Intake 2/19 5:20pm</title>
   <style>
     :root{
       --bg:#fff5eaff;
@@ -815,7 +815,20 @@
             <textarea id="m_feature" placeholder="Description of your product or service. Focus on what it is in simple language."></textarea>
           </div>
         </div>
-
+<!-- Merchant: Line of business -->
+<div class="row">
+  <div>
+    <label for="m_businessLine" class="required">What line of business does your campaign fall into?</label>
+    <select id="m_businessLine" required>
+      <option value="" selected disabled>Select line of business</option>
+      <option>Marketplace</option>
+      <option>DoorDash Commerce Platform</option>
+      <option>DoorDash for Business</option>
+      <option>DoorDash Ads</option>
+    </select>
+    <div class="error" id="m_businessLineErr">Line of business is required.</div>
+  </div>
+</div>
         <div class="row">
           <div>
             <label for="m_cta">What is your primary CTA?</label>
@@ -1044,6 +1057,8 @@
       const m_cta = el('m_cta');
       const m_ctaHint = el('m_ctaHint');
       const m_unsupportedMsg = el('m_unsupportedMsg');
+      const m_businessLine = el('m_businessLine');
+      
 
       const m_longform = el('m_longform');
 const m_longType = el('m_longType');
@@ -1551,7 +1566,7 @@ CTA: ${callToAction}.`;
 
   // Always need segment/usecase/action/takeaway
   valid &&= validateRequired(m_segment,'m_segmentErr');
-
+valid &&= validateRequired(m_businessLine, 'm_businessLineErr');
   // Behavior is required for non–long-form only
   if (ch !== 'Long-form Content'){
     valid &&= validateStartsWithWho(m_behavior,'m_behaviorErr');
@@ -1599,7 +1614,8 @@ CTA: ${callToAction}.`;
     const lt = (m_longType.value || '').toLowerCase();
     const article = /^[aeiou]/i.test(longType) ? 'an' : 'a';
 
-    let txt = `I need ${article} ${longType} for our DoorDash Merchant Content team targeting a ${seg} audience. Use Case: ${uc}. The action we want the Merchant to take: ${actVal}. The most important takeaway for the Merchant: ${takeVal}. Highlight the following product/service: ${productAns}. CTA: ${callToAction}.`;
+const businessLine = (m_businessLine?.value || 'B2B');
+let txt = `I need ${businessLine} ${article} ${longType} for our DoorDash B2B team targeting a ${seg} audience. The action we want the Merchant to take: ${actVal}. The most important takeaway for the Merchant: ${takeVal}. Highlight the following product/service: ${productAns}. CTA: ${callToAction}.`;
 
     if (lt === 'success story / case study'){
       const merchantDetails = (m_successMerchant?.value || '').trim();
@@ -1619,7 +1635,7 @@ CTA: ${callToAction}.`;
   }
 
   // ----- Default (non–Paid Media) -----
-  let txt = `I need a ${ch} for our DoorDash Merchant team targeting a ${seg} audience ${(m_behavior.value||'').trim()}. 
+  let txt = `I need a {line of business} ${ch} for our DoorDash B2B team targeting a ${seg} audience ${(m_behavior.value||'').trim()}. 
 Use Case: ${uc}.
 The main action we want the Merchant to take: ${actVal}
 The most important takeaway for Merchant: ${takeVal}
@@ -1631,8 +1647,8 @@ CTA: ${callToAction}.`;
     const duration = (m_adType.value === 'Video' || m_adType.value === 'Static and Video')
       ? (m_videoLength?.value || '') + ' '
       : '';
-    txt = `I need a ${duration}${m_adType.value} ${ch} ad for our DoorDash Merchant team targeting a ${seg} audience ${(m_behavior.value||'').trim()}. 
-Use Case: ${uc}.
+    const businessLine = (m_businessLine?.value || 'B2B');
+txt = `I need a ${businessLine} ${duration}${m_adType.value} ${ch} ad for our DoorDash B2B team targeting a ${seg} audience ${(m_behavior.value||'').trim()}.
 The main action we want the Merchant to take: ${actVal}
 The most important takeaway for Merchant: ${takeVal}
 Product/Service overview: ${productAns}
@@ -1722,7 +1738,7 @@ CTA: ${callToAction}.`;
       d_promoType.addEventListener('change', updateVisibility);
       d_hasSecondary.addEventListener('change', updateVisibility);
       m_hasSecondary.addEventListener('change', updateVisibility);
-
+m_businessLine.addEventListener && m_businessLine.addEventListener('change', updateVisibility);
       generateBtn.addEventListener('click', gatherAndGenerate);
       copyBtn.addEventListener('click', async () => {
         const text = output.textContent.trim();
