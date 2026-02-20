@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dora Campaign Intake 2/19 6:15pm</title>
+  <title>Dora Campaign Intake 2/19 6:20pm</title>
   <style>
     :root{
       --bg:#fff5eaff;
@@ -54,7 +54,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Dora Prompt Generator 2/19 6:15pm</h1>
+    <h1>Dora Prompt Generator 2/19 6:20pm</h1>
     <p class="lead">Building for marketing channels? Fill out this form to generate a complete, ready-to-use prompt. Fields will update as you go.</p>
 
     <form id="intakeForm" novalidate>
@@ -1617,7 +1617,7 @@ valid &&= validateRequired(m_businessLine, 'm_businessLineErr');
     const article = /^[aeiou]/i.test(longType) ? 'an' : 'a';
 
 const businessLine = (m_businessLine?.value || 'B2B');
-let txt = `I need ${businessLine} ${article} ${longType} for our DoorDash B2B team targeting a ${seg} audience. The action we want the Merchant to take: ${actVal}. The most important takeaway for the Merchant: ${takeVal}. Highlight the following product/service: ${productAns}. CTA: ${callToAction}.`;
+let txt = `I need a ${businessLine} ${article} ${longType} for our DoorDash B2B team targeting a ${seg} audience. The action we want the Merchant to take: ${actVal}. The most important takeaway for the Merchant: ${takeVal}. Highlight the following product/service: ${productAns}. CTA: ${callToAction}.`;
 
     if (lt === 'success story / case study'){
       const merchantDetails = (m_successMerchant?.value || '').trim();
@@ -1637,7 +1637,7 @@ let txt = `I need ${businessLine} ${article} ${longType} for our DoorDash B2B te
   }
 
   // ----- Default (non–Paid Media) -----
-  let txt = `I need a {line of business} ${ch} for our DoorDash B2B team targeting a ${seg} audience ${(m_behavior.value||'').trim()}. 
+  let txt = `I need a ${businessLine} ${ch} for our DoorDash B2B team targeting a ${seg} audience ${(m_behavior.value||'').trim()}. 
 Use Case: ${uc}.
 The main action we want the Merchant to take: ${actVal}
 The most important takeaway for Merchant: ${takeVal}
