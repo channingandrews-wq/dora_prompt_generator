@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dora Campaign Intake 2/19 6:25pm</title>
+  <title>Dora Campaign Intake 2/19 6:35pm</title>
   <style>
     :root{
       --bg:#fff5eaff;
@@ -54,7 +54,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Dora Prompt Generator 2/19 6:25pm</h1>
+    <h1>Dora Prompt Generator 2/19 6:35pm</h1>
     <p class="lead">Building for marketing channels? Fill out this form to generate a complete, ready-to-use prompt. Fields will update as you go.</p>
 
     <form id="intakeForm" novalidate>
@@ -1608,7 +1608,7 @@ valid &&= validateRequired(m_businessLine, 'm_businessLineErr');
   const takeVal = (m_takeaway.value||'').trim() || 'N/A';
   const callToAction = m_cta.value || 'N/A';
   const productAns = (m_feature?.value || '').trim() || 'N/A';
-
+const businessLine = (m_businessLine?.value || 'B2B');
   // ----- Long-Form OUTPUT (single, final version) -----
   if (ch === 'Long-form Content'){
     const longType = m_longType.value || 'Long-form Content';
