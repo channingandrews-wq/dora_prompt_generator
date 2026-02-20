@@ -1250,7 +1250,7 @@ if (audience.value === 'B2B') {
   // Hide/show the CTA hint only for Paid Media
   m_ctaHint.classList.toggle('hidden', m_channel.value !== 'Paid Media');
 
-  // Get common rows
+   // Get common rows
   const mBehaviorRow = m_behavior.parentElement.parentElement;
   const mSegmentRow = m_segment.parentElement.parentElement;
   const mUsecaseRow = m_usecase.parentElement.parentElement;
@@ -1258,6 +1258,7 @@ if (audience.value === 'B2B') {
   const mTakeawayRow = m_takeaway.parentElement.parentElement;
   const mFeatureRow = m_feature.parentElement.parentElement;
   const mCtaRow = m_cta.parentElement.parentElement;
+  const mBusinessLineRow = m_businessLine && m_businessLine.parentElement && m_businessLine.parentElement.parentElement;
 
   if (isPortal) {
     // Hide all questions if Portal Feed Card
@@ -1267,11 +1268,11 @@ if (audience.value === 'B2B') {
     m_videoQWrap.classList.add('hidden');
     m_secondaryFS.classList.add('hidden');
 
-    [mSegmentRow, mBehaviorRow, mUsecaseRow, mActionRow, mTakeawayRow, mFeatureRow, mCtaRow]
+    [mSegmentRow, mBehaviorRow, mUsecaseRow, mActionRow, mTakeawayRow, mFeatureRow, mBusinessLineRow, mCtaRow]
       .forEach(r => r && r.classList.add('hidden'));
   } else {
     // Normal Merchant flow
-    [mSegmentRow, mUsecaseRow, mActionRow, mTakeawayRow, mFeatureRow, mCtaRow]
+        [mSegmentRow, mUsecaseRow, mActionRow, mTakeawayRow, mFeatureRow, mBusinessLineRow, mCtaRow]
       .forEach(r => r && r.classList.remove('hidden'));
 
     // Long-form visibility
@@ -1308,6 +1309,8 @@ if (audience.value === 'B2B') {
 } else {
   m_secondaryFS.classList.add('hidden');
   m_unsupportedMsg.classList.add('hidden');
+  const mBusinessLineRow = m_businessLine && m_businessLine.parentElement && m_businessLine.parentElement.parentElement;
+  if (mBusinessLineRow) mBusinessLineRow.classList.add('hidden');
 }
 
 
